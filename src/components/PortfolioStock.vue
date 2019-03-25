@@ -3,10 +3,10 @@
        <h4 class="m-0 p-0 text-center">{{ symbol }}</h4>
        <hr>
        <p>{{ name }}</p>
-       <p>Price: ${{ price }}</p> 
+       <p>Price: {{ price | currency }}</p> 
        <hr>
        <p>Quantity: {{ quantity }}</p>
-       <p>Total: ${{ total }}</p>
+       <p>Total: {{ total | currency }}</p>
        <button class="btn btn-primary btn-block mt-4" @click="sellStock">Sell Stock</button>
     </div>
 </template>

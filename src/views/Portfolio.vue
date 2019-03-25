@@ -1,8 +1,10 @@
 <template>
     <div class="container mt-4">
        <account-funds :title="title"></account-funds>
-       <div v-for="(key, index) in purchases" :key="index">
+       <div class="row">
+           <div v-for="(key, index) in purchases" :key="index">
            <portfolio-stock :stockArray="key"></portfolio-stock>
+       </div>
        </div>
     </div>
 </template>
