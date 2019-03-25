@@ -26,7 +26,7 @@
                     </li>
                 </ul>
             </div>
-            <button class="btn btn-outline-dark mr-4">End Day</button>
+            <button class="btn btn-outline-dark mr-4" @click="updatePrices">End Day</button>
             <div class="dropdown pr-4">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,6 +41,28 @@
         </nav>
     </div>
 </template>
+
+<script>
+export default {
+    computed: {
+        stockPrices() {
+            return this.$store.state.stocks;
+        }
+    },
+    methods: {
+        updatePrices() {
+            let newStocks = [];
+            this.stockPrices.forEach(element => {
+                let currentPrice = element.price;
+                let percentChange = (Math.random() * (1.2 - 0.8) + 0.8).toFixed(4);
+                element.price = currentPrice * percentChange;
+                newStocks.push(element);
+            });
+            this.$store.state.stocks = newStocks;
+        }
+    }
+}
+</script>
 
 
 <style lang="css">
