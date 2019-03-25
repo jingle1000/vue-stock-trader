@@ -9,6 +9,9 @@ require('jquery')
 require('bootstrap/js/src/dropdown');
 
 Vue.config.productionTip = false;
+Vue.filter("currency", (value) => {
+  return "$" + parseFloat(Math.round(value * 100) / 100).toFixed(2);
+});
 
 new Vue({
   router,
