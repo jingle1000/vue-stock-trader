@@ -42,5 +42,7 @@ p {
     width: auto !important;
     border: none;
     border-radius: 10px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="stock card shadow mt-4 mr-4 p-4">
+    <div class="col-10 card shadow mr-2 mt-4 p-4">
        <h4 class="m-0 p-0 text-center">{{ symbol }}</h4>
        <hr>
        <p>{{ name }}</p>

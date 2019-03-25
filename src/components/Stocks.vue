@@ -25,7 +25,4 @@
 </script>
 
 <style>
-.stock {
-    min-width: 200px;
-}
 </style>

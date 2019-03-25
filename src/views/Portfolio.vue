@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-4">
        <account-funds :title="title"></account-funds>
-       <div class="row">
+       <div class="row p-2">
            <div v-for="(key, index) in purchases" :key="index">
            <portfolio-stock :stockArray="key"></portfolio-stock>
        </div>

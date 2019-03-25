@@ -6,10 +6,10 @@
                     <h3>{{ title }}</h3>
                 </div>
                 <div class="col-3">
-                    <button class="btn btn-outline-dark btn-block">Current Funds: ${{ userFunds }}</button>
+                    <button class="btn btn-outline-dark btn-block">Current Funds: {{ userFunds | currency }}</button>
                 </div>
                 <div class="col-3">
-                    <button class="btn btn-outline-dark btn-block">Net Worth: {{}}</button>
+                    <button class="btn btn-outline-dark btn-block">Net Worth: {{ netWorth | currency }}</button>
                 </div>
             </div>
         </div>
@@ -27,6 +27,14 @@ export default {
     computed: {
         userFunds() {
             return parseFloat(Math.round((this.$store.state.userFunds) * 100) / 100).toFixed(2);;
+        },
+        netWorth() {
+            let total = 0;
+            this.$store.state.userPurchases.forEach(stockObj => {
+                total += parseFloat(stockObj.stock.price * stockObj.quantity);
+            });
+
+            return total + parseFloat(this.userFunds);
         }
     },
     methods: {
@@ -45,6 +53,8 @@ p {
 .account-funds {
     background: white;
     border-radius: 10px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 }
 .col-3 {
     display: flex;

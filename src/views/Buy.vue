@@ -1,5 +1,5 @@
 <template>
-    <div class="container pt-4">
+    <div class="container p-4">
         <account-funds :title="title"></account-funds>
 
         <stock-container></stock-container>
@@ -24,7 +24,6 @@ export default {
 
 <style>
 .card {
-    max-width: 400px;
     border: none;
 }
 </style>
