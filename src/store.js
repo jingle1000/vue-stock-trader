@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { DH_NOT_SUITABLE_GENERATOR } from 'constants';
 
 Vue.use(Vuex)
 
@@ -38,7 +39,22 @@ export default new Vuex.Store({
   },
   actions: {
     addStock(context, data) {
-      context.state.userPurchases.push(data);
+      console.log(data);
+      function checkStocks(purchases) {
+        for (let i = 0; i < purchases.length; i++) {
+          if (purchases[i].stock.name == data.stock.name) {
+            let currentQuantity = parseFloat(purchases[i].quantity);
+            let toAdd = parseFloat(data.quantity);
+            purchases[i].quantity = currentQuantity + toAdd;
+            return true;
+            break;
+          }
+        }
+        return false;
+      } 
+      if (!checkStocks(context.state.userPurchases)) {
+        context.state.userPurchases.push(data);
+      }
     }
   }
 })
